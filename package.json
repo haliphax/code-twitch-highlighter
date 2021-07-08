@@ -1,0 +1,33 @@
+{
+	"name": "code-twitch-highlighter",
+	"description": "VS Code channel points redemption integration for highlighting lines",
+	"version": "0.0.1",
+	"publisher": "haliphax",
+	"repository": "https://github.com/haliphax/code-twitch-highlighter",
+	"engines": {
+		"vscode": "^1.32.0"
+	},
+	"activationEvents": [
+		"onStartupFinished"
+	],
+	"main": "./codeTwitchHighlighter.js",
+	"contributes": {
+		"configuration": {
+			"title": "Code Twitch Highlighter",
+			"properties": {
+				"codeTwitchHighlighter.channel": {
+					"type": "string",
+					"default": null,
+					"description": "The channel name to receive redemption events from"
+				}
+			}
+		}
+	},
+	"scripts": {},
+	"devDependencies": {
+		"@types/vscode": "^1.32.0"
+	},
+	"dependencies": {
+		"tmi.js": "^1.8.3"
+	}
+}
