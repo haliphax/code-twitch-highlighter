@@ -34,13 +34,6 @@ const decoration = vscode.window.createTextEditorDecorationType({
 
 let removeHighlightTimeout = false;
 
-const activate = context => {
-	api.connect();
-	vscode.window.showInformationMessage('Code Twitch Highlighter connected');
-};
-
-const deactivate = () => api.disconnect();
-
 const highlight = lineNumber => {
 	const range = new vscode.Range(
 		new vscode.Position(lineNumber, lineNumber),
@@ -53,6 +46,13 @@ const highlight = lineNumber => {
 		editor.setDecorations(decoration, []),
 		10000);
 };
+
+const activate = context => {
+	api.connect();
+	vscode.window.showInformationMessage('Code Twitch Highlighter connected');
+};
+
+const deactivate = () => api.disconnect();
 
 module.exports = {
 	activate,
