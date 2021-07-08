@@ -7,7 +7,6 @@ const api = new Client({
 });
 
 api.on('message', (channel, tags, message, self) => {
-	console.debug(tags);
 	if (tags['custom-reward-id'] !== '378724b6-dfa1-4c10-9724-8bb43424e122')
 		return;
 
