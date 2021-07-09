@@ -1,7 +1,7 @@
 {
 	"name": "twitch-highlighter",
 	"displayName": "Twitch Highlighter",
-	"description": "VS Code channel points redemption integration for highlighting lines",
+	"description": "Allows Twitch viewers to redeem channel points in order to highlight a line in the streamer's text editor",
 	"version": "0.0.1",
 	"publisher": "haliphax",
 	"repository": "https://github.com/haliphax/code-twitch-highlighter",
