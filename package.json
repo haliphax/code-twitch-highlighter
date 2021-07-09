@@ -1,5 +1,5 @@
 {
-	"name": "code-twitch-highlighter",
+	"name": "twitch-highlighter",
 	"displayName": "Twitch Highlighter",
 	"description": "VS Code channel points redemption integration for highlighting lines",
 	"version": "0.0.1",
@@ -11,15 +11,40 @@
 	"activationEvents": [
 		"onStartupFinished"
 	],
-	"main": "./codeTwitchHighlighter.js",
+	"main": "./extension.js",
 	"contributes": {
 		"configuration": {
-			"title": "Code Twitch Highlighter",
+			"title": "Twitch Highlighter",
 			"properties": {
-				"codeTwitchHighlighter.channel": {
+				"twitchHighlighter.backgroundColor": {
+					"type": "string",
+					"default": "#a0a",
+					"description": "Background color of the highlighted line"
+				},
+				"twitchHighlighter.border": {
+					"type": "string",
+					"default": "2px solid #000",
+					"description": "Border style of the highlighted line"
+				},
+				"twitchHighlighter.channel": {
 					"type": "string",
 					"default": null,
 					"description": "The channel name to receive redemption events from"
+				},
+				"twitchHighlighter.color": {
+					"type": "string",
+					"default": "#fff",
+					"description": "Foreground color of the highlighted line"
+				},
+				"twitchHighlighter.fontWeight": {
+					"type": "string",
+					"default": "bold",
+					"description": "Font weight of the highlighted line"
+				},
+				"twitchHighlighter.rewardId": {
+					"type": "string",
+					"default": null,
+					"description": "Internal ID of the channel points reward"
 				}
 			}
 		}

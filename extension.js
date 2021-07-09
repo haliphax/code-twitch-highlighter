@@ -7,7 +7,7 @@ const api = new Client({
 });
 
 api.on('message', (channel, tags, message, self) => {
-	if (tags['custom-reward-id'] !== '378724b6-dfa1-4c10-9724-8bb43424e122')
+	if (tags['custom-reward-id'] !== config.rewardId)
 		return;
 
 	try {
@@ -25,10 +25,10 @@ api.on('message', (channel, tags, message, self) => {
 });
 
 const decoration = vscode.window.createTextEditorDecorationType({
-		backgroundColor: '#f0f',
-		color: '#fff',
-		fontWeight: 'bold',
-		border: '2px solid #000',
+		backgroundColor: config.backgroundColor,
+		color: config.color,
+		fontWeight: config.fontWeight,
+		border: config.border,
 		isWholeLine: true,
 	});
 
@@ -49,7 +49,7 @@ const highlight = lineNumber => {
 
 const activate = context => {
 	api.connect();
-	vscode.window.showInformationMessage('Code Twitch Highlighter connected');
+	vscode.window.showInformationMessage('Twitch Highlighter connected');
 };
 
 const deactivate = () => api.disconnect();
