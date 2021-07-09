@@ -1,36 +1,15 @@
 const vscode = require('vscode');
-const config = vscode.workspace.getConfiguration('codeTwitchHighlighter');
 const { Client } = require('tmi.js');
 
-const api = new Client({
-	channels: [config.channel],
-});
-
-api.on('message', (channel, tags, message, self) => {
-	if (tags['custom-reward-id'] !== config.rewardId)
-		return;
-
-	try {
-		const lineNumber = parseInt(/(\d+)/.exec(message)[1]);
-
-		if (lineNumber <= 0) return;
-
-		vscode.window.showInformationMessage(
-			`${tags['display-name']} is highlighting line ${lineNumber}!`)
-		highlight(lineNumber - 1);
-	}
-	catch (err) {
-		console.error(err);
-	}
-});
-
+const config = vscode.workspace.getConfiguration('codeTwitchHighlighter');
+const api = new Client({ channels: [config.channel] });
 const decoration = vscode.window.createTextEditorDecorationType({
-		backgroundColor: config.backgroundColor,
-		color: config.color,
-		fontWeight: config.fontWeight,
-		border: config.border,
-		isWholeLine: true,
-	});
+	backgroundColor: config.backgroundColor,
+	color: config.color,
+	fontWeight: config.fontWeight,
+	border: config.border,
+	isWholeLine: true,
+});
 
 let removeHighlightTimeout = false;
 
@@ -53,6 +32,24 @@ const activate = context => {
 };
 
 const deactivate = () => api.disconnect();
+
+api.on('message', (channel, tags, message, self) => {
+	if (tags['custom-reward-id'] !== config.rewardId)
+		return;
+
+	try {
+		const lineNumber = parseInt(/(\d+)/.exec(message)[1]);
+
+		if (lineNumber <= 0) return;
+
+		vscode.window.showInformationMessage(
+			`${tags['display-name']} is highlighting line ${lineNumber}!`)
+		highlight(lineNumber - 1);
+	}
+	catch (err) {
+		console.error(err);
+	}
+});
 
 module.exports = {
 	activate,
