@@ -1,7 +1,7 @@
 const vscode = require('vscode');
 const { Client } = require('tmi.js');
 
-const config = vscode.workspace.getConfiguration('codeTwitchHighlighter');
+const config = vscode.workspace.getConfiguration('twitchHighlighter');
 const api = new Client({ channels: [config.channel] });
 const decoration = vscode.window.createTextEditorDecorationType({
 	backgroundColor: config.backgroundColor,
