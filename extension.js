@@ -35,15 +35,23 @@ const deactivate = () => api.disconnect();
 
 api.on('message', (channel, tags, message, self) => {
 	if (tags['custom-reward-id'] !== config.rewardId)
+	{
+		console.debug(`Reward ID: ${tags['custom-reward-id']}`);
+		console.debug(`Setting value: ${config.rewardId}`);
 		return;
+	}
 
 	try {
-		const lineNumber = parseInt(/(\d+)/.exec(message)[1]);
+		const matches = /^(\d+)(.*)$/.exec(message.trim());
+		const lineNumber = parseInt(matches[1]);
+		let text = matches[2].trim();
 
 		if (lineNumber <= 0) return;
 
+		if (text.length === 0) text = 'No message';
+
 		vscode.window.showInformationMessage(
-			`${tags['display-name']} is highlighting line ${lineNumber}!`)
+			`${tags['display-name']} is highlighting line ${lineNumber}: ${text}`)
 		highlight(lineNumber - 1);
 	}
 	catch (err) {
