@@ -34,10 +34,18 @@ const activate = context => {
 const deactivate = () => api.disconnect();
 
 api.on('message', (channel, tags, message, self) => {
-	if (tags['custom-reward-id'] !== config.rewardId)
-	{
-		console.debug(`Reward ID: ${tags['custom-reward-id']}`);
-		console.debug(`Setting value: ${config.rewardId}`);
+	if (tags['custom-reward-id']) {
+		const rewardId = tags['custom-reward-id'];
+
+		if (message.trim() === '!highlight test') {
+			vscode.window.showInformationMessage(rewardId);
+			return;
+		}
+
+		if (rewardId != config.rewardId)
+			return;
+	}
+	else {
 		return;
 	}
 
@@ -55,7 +63,7 @@ api.on('message', (channel, tags, message, self) => {
 		highlight(lineNumber - 1);
 	}
 	catch (err) {
-		console.error(err);
+		vscode.window.showErrorMessage(err);
 	}
 });
 
