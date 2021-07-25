@@ -42,8 +42,7 @@ api.on('message', (channel, tags, message, self) => {
 			return;
 		}
 
-		if (rewardId != config.rewardId)
-			return;
+		if (rewardId != config.rewardId) return;
 	}
 	else {
 		return;
