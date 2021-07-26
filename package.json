@@ -51,7 +51,7 @@
 	},
 	"scripts": {},
 	"devDependencies": {
-		"@types/vscode": "^1.32.0"
+		"@types/vscode": "^1.58.1"
 	},
 	"dependencies": {
 		"tmi.js": "^1.8.3"
