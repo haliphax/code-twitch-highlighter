@@ -1,5 +1,17 @@
 # Changelog
 
+<a name="1.0.2"></a>
+## 1.0.2 (2021-08-10)
+
+### Added
+
+- 🔊 changelog [[1b2bee1](https://github.com/haliphax/code-twitch-highlighter/commit/1b2bee1e97e62e3922c0584d362e9523e83c29a7)]
+
+### Changed
+
+- ⬆️ bump vscode dependency from 1.58.1 to 1.59.0 [[7effa53](https://github.com/haliphax/code-twitch-highlighter/commit/7effa539aa19aac0ca0a7905783c9329b02c31db)]
+
+
 <a name="1.0.1"></a>
 ## 1.0.1 (2021-07-26)
 
