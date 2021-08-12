@@ -54,6 +54,6 @@
 		"@types/vscode": "^1.59.0"
 	},
 	"dependencies": {
-		"tmi.js": "^1.8.3"
+		"tmi.js": "^1.8.4"
 	}
 }
