@@ -1,5 +1,15 @@
 # Changelog
 
+<a name="1.0.3"></a>
+## 1.0.3 (2022-04-14)
+
+### Changed
+
+- ⬆️ bump vscode dependency to 1.66.0 [[7303889](https://github.com/haliphax/code-twitch-highlighter/commit/7303889854cc56f6f8c50a1514644c940f7a98ec)]
+- ⬆️ Bump tmi.js from 1.8.4 to 1.8.5 ([#4](https://github.com/haliphax/code-twitch-highlighter/issues/4)) [[ef460ef](https://github.com/haliphax/code-twitch-highlighter/commit/ef460ef2c4fd26ef032ca153e068a9b8859e795f)]
+- ⬆️ Bump tmi.js from 1.8.3 to 1.8.4 ([#3](https://github.com/haliphax/code-twitch-highlighter/issues/3)) [[f695ccf](https://github.com/haliphax/code-twitch-highlighter/commit/f695ccf497c991cf0e94e2cbed5aa6727fc1bd37)]
+
+
 <a name="1.0.2"></a>
 ## 1.0.2 (2021-08-10)
 
