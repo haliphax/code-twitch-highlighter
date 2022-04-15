@@ -2,7 +2,7 @@ const vscode = require('vscode');
 const { Client } = require('tmi.js');
 
 const config = vscode.workspace.getConfiguration('twitchHighlighter');
-const api = new Client({ channels: [config.channel] });
+const twitch = new Client({ channels: [config.channel] });
 const decoration = vscode.window.createTextEditorDecorationType({
 	backgroundColor: config.backgroundColor,
 	color: config.color,
@@ -27,13 +27,13 @@ const highlight = lineNumber => {
 };
 
 const activate = context => {
-	api.connect();
+	twitch.connect();
 	vscode.window.showInformationMessage('Twitch Highlighter connected');
 };
 
-const deactivate = () => api.disconnect();
+const deactivate = () => twitch.disconnect();
 
-api.on('message', (channel, tags, message, self) => {
+twitch.on('message', (channel, tags, message, self) => {
 	if (tags['custom-reward-id']) {
 		const rewardId = tags['custom-reward-id'];
 
