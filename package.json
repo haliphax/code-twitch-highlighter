@@ -18,12 +18,12 @@
 			"properties": {
 				"twitchHighlighter.backgroundColor": {
 					"type": "string",
-					"default": "#a0a",
+					"default": "#529",
 					"description": "Background color of the highlighted line"
 				},
 				"twitchHighlighter.border": {
 					"type": "string",
-					"default": "2px solid #000",
+					"default": "none",
 					"description": "Border style of the highlighted line"
 				},
 				"twitchHighlighter.channel": {
@@ -33,7 +33,7 @@
 				},
 				"twitchHighlighter.color": {
 					"type": "string",
-					"default": "#fff",
+					"default": "#f0f",
 					"description": "Foreground color of the highlighted line"
 				},
 				"twitchHighlighter.fontWeight": {
