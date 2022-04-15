@@ -1,5 +1,19 @@
 # Changelog
 
+<a name="1.1.0"></a>
+## 1.1.0 (2022-04-15)
+
+### Added
+
+- ✨ highlight multiple lines [[1e91236](https://github.com/haliphax/code-twitch-highlighter/commit/1e912362e75d9945c6ffe78a05491f9b3df43dcb)]
+
+### Changed
+
+- 💄 update styles [[1876eab](https://github.com/haliphax/code-twitch-highlighter/commit/1876eab62923aeffd24c0353d4d02c3437f830de)]
+- ♻️ rename api to twitch [[b12370e](https://github.com/haliphax/code-twitch-highlighter/commit/b12370ee098f35654966bcd1c12fc86a1dde0547)]
+- 📌 rebuild package-lock.json [[b83fe34](https://github.com/haliphax/code-twitch-highlighter/commit/b83fe342fcb523d0b584199c4cda2a951df35b1e)]
+
+
 <a name="1.0.3"></a>
 ## 1.0.3 (2022-04-14)
 
