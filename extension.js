@@ -13,16 +13,16 @@ const decoration = vscode.window.createTextEditorDecorationType({
 
 let removeHighlightTimeout = false;
 
-const highlight = lineNumber => {
+const highlight = (fromLine, toLine) => {
 	const range = new vscode.Range(
-		new vscode.Position(lineNumber, lineNumber),
-		new vscode.Position(lineNumber, lineNumber))
+		new vscode.Position(fromLine, 0),
+		new vscode.Position(toLine, 0));
 	const editor = vscode.window.activeTextEditor;
 
 	clearTimeout(removeHighlightTimeout);
 	editor.setDecorations(decoration, [range]);
-	removeHighlightTimeout = setTimeout(() =>
-		editor.setDecorations(decoration, []),
+	removeHighlightTimeout = setTimeout(
+		() => editor.setDecorations(decoration, []),
 		10000);
 };
 
@@ -49,17 +49,20 @@ twitch.on('message', (channel, tags, message, self) => {
 	}
 
 	try {
-		const matches = /^(\d+)(.*)$/.exec(message.trim());
-		const lineNumber = parseInt(matches[1]);
-		let text = matches[2].trim();
+		const matches = /^(\d+)([-,: ]\d+)?(.*)$/.exec(message.trim());
+		const fromLine = parseInt(matches[1]);
+		const toLine = (matches[2] && parseInt(matches[2].substring(1)))
+			|| fromLine;
 
-		if (lineNumber <= 0) return;
+		if (fromLine <= 0 || toLine < fromLine) return;
+
+		let text = matches[3].trim();
 
 		if (text.length === 0) text = 'No message';
 
 		vscode.window.showInformationMessage(
-			`${tags['display-name']} is highlighting line ${lineNumber}: ${text}`)
-		highlight(lineNumber - 1);
+			`${tags['display-name']} is highlighting lines ${fromLine}-${toLine}: ${text}`)
+		highlight(fromLine - 1, toLine - 1);
 	}
 	catch (err) {
 		vscode.window.showErrorMessage(err);
